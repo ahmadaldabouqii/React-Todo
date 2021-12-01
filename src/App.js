@@ -1,10 +1,17 @@
-import "./styles.css";
+import "./App.css";
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
 
-export default function App() {
+const App = () => {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <header>
+        <h1>Ed's Todo List</h1>
+      </header>
+      <Form />
+      <TodoList />
     </div>
   );
-}
+};
+
+export default App;
