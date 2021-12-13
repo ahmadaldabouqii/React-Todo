@@ -7,6 +7,9 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
   const submitTodoHandler = (event) => {
     event.preventDefault();
+
+    if (!inputText) return;
+
     setTodos([
       ...todos,
       {
