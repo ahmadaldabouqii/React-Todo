@@ -1,64 +1,80 @@
-import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
 import "./App.css";
-import Form from "./components/Form";
-import TodoList from "./components/TodoList";
+import TodoUI from "./components/UI/TodoUI/TodoUI";
+import ExpenseTracker from "./components/UI/ExpenseTrackerUI/ExpenseTrackerUI";
 
 const App = () => {
+  // TODO States
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filterdTodos, setFilterdTodos] = useState([]);
 
-  useEffect(() => {
-    getLocalTodos();
-  }, []);
-
-  useEffect(() => {
-    filterHandler();
-    saveToLocalTodos();
-  }, [todos, status]);
-
-  const filterHandler = () => {
-    switch (status) {
-      case "completed":
-        setFilterdTodos(todos.filter((todo) => todo.completed === true));
-        break;
-      case "uncompleted":
-        setFilterdTodos(todos.filter((todo) => todo.completed === false));
-        break;
-      default:
-        setFilterdTodos(todos);
-        break;
-    }
-  };
-
-  const saveToLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
-
-  const getLocalTodos = () => {
-    if (!localStorage.getItem("todos")) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let toLocal = JSON.parse(localStorage.getItem("todos"));
-      setTodos(toLocal);
-    }
-  };
+  // Expenses State
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
+  const [transactions, setTransactions] = useState([]);
+  const [total, setTotal] = useState(expense + income);
 
   return (
-    <div className="App">
-      <header>
-        <h1>Ed's Todo List</h1>
-      </header>
-      <Form
-        inputText={inputText}
-        setInputText={setInputText}
-        todos={todos}
-        setTodos={setTodos}
-        setStatus={setStatus}
-      />
-      <TodoList filterdTodos={filterdTodos} setTodos={setTodos} todos={todos} />
-    </div>
+    <Router>
+      {/* <Routes>
+        <Route
+          path="/TodoUI"
+          element={
+            <TodoUI
+              inputText={inputText}
+              setInputText={setInputText}
+              todos={todos}
+              setTodos={setTodos}
+              status={status}
+              setStatus={setStatus}
+              filterdTodos={filterdTodos}
+              setFilterdTodos={setFilterdTodos}
+            />
+          }
+        />
+        <Route
+          path="/ExpenseTrackerUI"
+          element={
+            <ExpenseTracker
+              income={income}
+              expense={expense}
+              total={total}
+              setTotal={setTotal}
+              setIncome={setIncome}
+              setExpense={setExpense}
+              transactions={transactions}
+              setTransactions={setTransactions}
+            />
+          }
+        />
+      </Routes> */}
+      <div className="App">
+        <TodoUI
+          inputText={inputText}
+          setInputText={setInputText}
+          todos={todos}
+          setTodos={setTodos}
+          status={status}
+          setStatus={setStatus}
+          filterdTodos={filterdTodos}
+          setFilterdTodos={setFilterdTodos}
+        />
+
+        {/* <ExpenseTracker
+          income={income}
+          expense={expense}
+          total={total}
+          setTotal={setTotal}
+          setIncome={setIncome}
+          setExpense={setExpense}
+          transactions={transactions}
+          setTransactions={setTransactions}
+        /> */}
+      </div>
+    </Router>
   );
 };
 export default App;
