@@ -40,20 +40,22 @@ function ExpenseTracker({
   };
 
   return (
-    <div className="ExpenseTrackerBody">
-      <Header />
-      <Balance total={total} />
-      <IncomeExpenses income={income} expense={expense} />
-      <TransactionList
-        setTransactions={setTransactions}
-        transactions={transactions}
-      />
-      <AddTransaction
-        setTotal={setTotal}
-        setIncome={setIncome}
-        setExpense={setExpense}
-        setTransactions={setTransactions}
-      />
+    <div className="holderExpensesUI">
+      <div className="ExpenseTrackerBody">
+        <Header />
+        <Balance total={total} />
+        <IncomeExpenses income={income} expense={expense} />
+        <TransactionList
+          setTransactions={setTransactions}
+          transactions={transactions}
+        />
+        <AddTransaction
+          setTotal={setTotal}
+          setIncome={setIncome}
+          setExpense={setExpense}
+          setTransactions={setTransactions}
+        />
+      </div>
     </div>
   );
 }
