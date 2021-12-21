@@ -23,6 +23,21 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route
+          path="/"
+          element={
+            <TodoUI
+              inputText={inputText}
+              setInputText={setInputText}
+              todos={todos}
+              setTodos={setTodos}
+              status={status}
+              setStatus={setStatus}
+              filterdTodos={filterdTodos}
+              setFilterdTodos={setFilterdTodos}
+            />
+          }
+        />
+        <Route
           path="/TodoUI"
           element={
             <TodoUI
@@ -53,29 +68,6 @@ const App = () => {
           }
         />
       </Routes>
-      {/* <div className="App">
-        <TodoUI
-          inputText={inputText}
-          setInputText={setInputText}
-          todos={todos}
-          setTodos={setTodos}
-          status={status}
-          setStatus={setStatus}
-          filterdTodos={filterdTodos}
-          setFilterdTodos={setFilterdTodos}
-        />
-
-         <ExpenseTracker
-          income={income}
-          expense={expense}
-          total={total}
-          setTotal={setTotal}
-          setIncome={setIncome}
-          setExpense={setExpense}
-          transactions={transactions}
-          setTransactions={setTransactions}
-        /> 
-      </div> */}
     </Router>
   );
 };
