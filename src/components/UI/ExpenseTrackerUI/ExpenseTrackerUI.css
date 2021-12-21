@@ -148,6 +148,10 @@ label {
   transition: opacity 0.3s ease;
 }
 
+.delete-btn:hover {
+  opacity: 1;
+}
+
 .Heading-4,
 .Heading-Header,
 h1,

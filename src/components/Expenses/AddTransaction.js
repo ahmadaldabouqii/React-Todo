@@ -5,9 +5,10 @@ const AddTransaction = ({
   setTransactions,
   setIncome,
   setExpense,
+  amount,
+  setAmount,
 }) => {
   const [text, setText] = useState("");
-  const [amount, setAmount] = useState();
 
   const onSubmit = (e) => {
     e.preventDefault();

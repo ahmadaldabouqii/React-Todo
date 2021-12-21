@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../../Expenses/Header";
 import IncomeExpenses from "../../Expenses/IncomeExpenses";
 import TransactionList from "../../Expenses/TransactionList";
@@ -15,13 +15,39 @@ function ExpenseTracker({
   setTransactions,
   setIncome,
   setExpense,
+  amount,
+  setAmount,
 }) {
+  useEffect(() => {
+    getLocalExpenses();
+  }, []);
+
+  useEffect(() => {
+    saveToLocalExpnses();
+  }, [transactions, total]);
+
+  const saveToLocalExpnses = () => {
+    localStorage.setItem("expenses", JSON.stringify(transactions));
+  };
+
+  const getLocalExpenses = () => {
+    if (!localStorage.getItem("expenses")) {
+      localStorage.setItem("expenses", JSON.stringify([]));
+    } else {
+      let toLocal = JSON.parse(localStorage.getItem("expenses"));
+      setTransactions(toLocal);
+    }
+  };
+
   return (
     <div className="ExpenseTrackerBody">
       <Header />
       <Balance total={total} />
       <IncomeExpenses income={income} expense={expense} />
-      <TransactionList transactions={transactions} />
+      <TransactionList
+        setTransactions={setTransactions}
+        transactions={transactions}
+      />
       <AddTransaction
         setTotal={setTotal}
         setIncome={setIncome}

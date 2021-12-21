@@ -1,6 +1,6 @@
 import Transaction from "../Expenses/Transaction";
 
-const TransactionList = ({ transactions }) => {
+const TransactionList = ({ transactions, setTransactions }) => {
   return (
     <>
       <h3 className="Heading-3">History</h3>
@@ -11,6 +11,8 @@ const TransactionList = ({ transactions }) => {
             trans={trans}
             amount={trans.amount}
             text={trans.text}
+            transactions={transactions}
+            setTransactions={setTransactions}
           />
         ))}
       </ul>
