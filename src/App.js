@@ -17,7 +17,7 @@ const App = () => {
   const [expense, setExpense] = useState(0);
   const [transactions, setTransactions] = useState([]);
   const [total, setTotal] = useState(expense + income);
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(0);
 
   return (
     <Router>

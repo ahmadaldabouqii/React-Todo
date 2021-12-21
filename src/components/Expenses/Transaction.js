@@ -5,7 +5,7 @@ const Transaction = ({
   trans,
   setTransactions,
 }) => {
-  const sign = amount < 0 ? "-" : "+";
+  const sign = +amount < 0 ? "-" : "+";
 
   const deleteTransaction = () => {
     const filteredTransations = transactions.filter(
@@ -15,10 +15,10 @@ const Transaction = ({
   };
 
   return (
-    <li className={amount < 0 ? "minus" : "plus"}>
+    <li className={+amount < 0 ? "minus" : "plus"}>
       {text}
       <span>
-        {sign}${Math.abs(amount)}
+        {sign}${Math.abs(+amount)}
       </span>
       <button onClick={deleteTransaction} className="delete-btn">
         x

@@ -15,8 +15,8 @@ function ExpenseTracker({
   setTransactions,
   setIncome,
   setExpense,
-  amount,
   setAmount,
+  amount,
 }) {
   useEffect(() => {
     getLocalExpenses();
@@ -54,6 +54,8 @@ function ExpenseTracker({
           setIncome={setIncome}
           setExpense={setExpense}
           setTransactions={setTransactions}
+          setAmount={setAmount}
+          amount={amount}
         />
       </div>
     </div>
