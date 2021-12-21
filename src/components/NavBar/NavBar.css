@@ -1,0 +1,25 @@
+.nav-header {
+  background-image: linear-gradient(120deg, #f6d365 0%, #807774 100%);
+  font-family: "Poppins", sans-serif;
+  /* padding: 1em; */
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  list-style-type: none;
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  color: #fefefe;
+}
+
+a:hover {
+  color: #807774;
+}

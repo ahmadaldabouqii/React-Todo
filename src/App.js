@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import TodoUI from "./components/UI/TodoUI/TodoUI";
 import ExpenseTracker from "./components/UI/ExpenseTrackerUI/ExpenseTrackerUI";
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
   // TODO States
@@ -19,7 +20,8 @@ const App = () => {
 
   return (
     <Router>
-      {/* <Routes>
+      <NavBar />
+      <Routes>
         <Route
           path="/TodoUI"
           element={
@@ -50,8 +52,8 @@ const App = () => {
             />
           }
         />
-      </Routes> */}
-      <div className="App">
+      </Routes>
+      {/* <div className="App">
         <TodoUI
           inputText={inputText}
           setInputText={setInputText}
@@ -63,7 +65,7 @@ const App = () => {
           setFilterdTodos={setFilterdTodos}
         />
 
-        {/* <ExpenseTracker
+         <ExpenseTracker
           income={income}
           expense={expense}
           total={total}
@@ -72,8 +74,8 @@ const App = () => {
           setExpense={setExpense}
           transactions={transactions}
           setTransactions={setTransactions}
-        /> */}
-      </div>
+        /> 
+      </div> */}
     </Router>
   );
 };
